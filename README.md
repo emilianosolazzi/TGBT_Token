@@ -18,20 +18,11 @@ There is **no token sale, no airdrop, no presale, and no public ICO**. All in-ci
 
 # Arbiscan Token Information Resubmission — TGBT
 
-**Submission date:** 2026-04-21
+**Submission date:** 2026-04-24 (resubmission following 2026-04-09 review)
 **Submitted by:** Emiliano Solazzi, project founder and protocol operator
-**Sender email:** emiliano.arlington@gmail.com *(public-provider address — ownership attestation in §6)*
-**Scope of this document:** non-website criteria only (project identity, sender authority, token facts, anti-misrepresentation, non-infringement).
-
-This document is the single source of truth for Arbiscan's review. Every claim here can be verified on-chain against the contracts listed in the appendix.
-
----
-# Arbiscan Token Information Resubmission — TGBT
-
-**Submission date:** 2026-04-21
-**Submitted by:** Emiliano Solazzi, project founder and protocol operator
-**Sender email:** emiliano.arlington@gmail.com *(public-provider address — ownership attestation in §6)*
-**Scope of this document:** non-website criteria only (project identity, sender authority, token facts, anti-misrepresentation, non-infringement).
+**Sender email:** emiliano@nativebtc.org *(project-domain address — Cloudflare Email Routing on the `nativebtc.org` zone)*
+**Project website:** https://tgbt.nativebtc.org/
+**Scope of this document:** non-website criteria (project identity, sender authority, token facts, anti-misrepresentation, non-infringement). Website is live and referenced in the Arbiscan submission form.
 
 This document is the single source of truth for Arbiscan's review. Every claim here can be verified on-chain against the contracts listed in the appendix.
 
@@ -196,7 +187,7 @@ The project attests the following explicitly, to prevent any reviewer concern:
 ## 10. What We Are Asking Arbiscan To Do
 
 1. Approve token information for `TGBT` at `0x31228eE520e895DA19f728DE5459b1b317d9b8D8` using the facts in §1–§4 of this document.
-2. Accept the sender-authority mitigation in §6 (on-chain signed message from the governance or operator wallet) in lieu of a domain-matched email, or advise which alternative verification path Arbiscan prefers.
+2. Acknowledge that the sender email (`emiliano@nativebtc.org`) is domain-matched to the project domain (`nativebtc.org`) used by the official website (`tgbt.nativebtc.org`). Additional wallet-signed or on-chain authority proofs are available on request per §6.
 3. Flag any name / symbol concern described in §5 so the project can respond rather than be silently declined.
 
 The project is available to respond promptly to any reviewer question through the same submission channel.
