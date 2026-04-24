@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TGBT — Temporal Gradient Beacon Token</title>
+  <style>
+    :root {
+      --bg: #0d2137;
+      --surface: #112840;
+      --border: #1e3d5c;
+      --accent: #4aadea;
+      --orange: #f7931a;
+      --text: #dce8f4;
+      --muted: #7a9bb8;
+      --radius: 6px;
+      font-size: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      padding: 2rem 1rem 4rem;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2.5rem; }
+    header img { width: 48px; height: 48px; }
+    header h1 { font-size: 1.6rem; font-weight: 700; color: #fff; }
+    header span { color: var(--muted); font-size: 0.95rem; }
+
+    /* Section */
+    section { margin-bottom: 2.5rem; }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    p { margin-bottom: 0.8rem; color: var(--text); }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th {
+      text-align: left;
+      background: var(--surface);
+      color: var(--muted);
+      font-weight: 600;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      word-break: break-all;
+    }
+    tr:last-child td { border-bottom: none; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.82rem;
+      background: #0a1b2e;
+      padding: 2px 5px;
+      border-radius: 3px;
+      color: #a8d4f5;
+    }
+
+    /* Badge row */
+    .badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .badge strong { color: var(--text); }
+
+    /* Team card */
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .team-card .name { font-weight: 600; color: #fff; font-size: 1rem; }
+    .team-card .role { color: var(--muted); font-size: 0.9rem; }
+
+    /* Links row */
+    .link-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .link-btn {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.45rem 1rem;
+      font-size: 0.88rem;
+      color: var(--accent);
+      transition: border-color 0.15s;
+    }
+    .link-btn:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* Notice */
+    .notice {
+      background: #0e1e10;
+      border: 1px solid #2a4a2e;
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: #8ec99a;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <img src="logo/TGBT.svg" alt="TGBT logo" />
+    <div>
+      <h1>Temporal Gradient Beacon Token</h1>
+      <span>TGBT &middot; ERC-20 &middot; Arbitrum One</span>
+    </div>
+  </header>
+
+  <div class="badges">
+    <span class="badge"><strong>Symbol:</strong> TGBT</span>
+    <span class="badge"><strong>Decimals:</strong> 18</span>
+    <span class="badge"><strong>Hard cap:</strong> 2,000,000,000 TGBT</span>
+    <span class="badge"><strong>Network:</strong> Arbitrum One (chain ID 42161)</span>
+    <span class="badge"><strong>License:</strong> MIT</span>
+  </div>
+
+  <div class="notice">
+    There is no token sale, no airdrop, no presale, and no public ICO. All in-circulation TGBT was
+    minted on-chain as a mining reward or as a governance-recorded initial balance — both verifiable
+    from the transactions published in the contract appendix below.
+  </div>
+
+  <!-- About -->
+  <section style="margin-top:2rem">
+    <h2>About the Protocol</h2>
+    <p>
+      Temporal Gradient is a proof-of-work randomness and anchoring protocol deployed on Arbitrum One.
+      Independent miners perform CPU-bound work, submit commit-reveal solutions to an on-chain
+      <code>MiningModule</code>, and are rewarded in TGBT when their solutions are validated. Accepted
+      solutions feed a verifiable randomness beacon and a batch-epoch Merkle commitment system.
+    </p>
+    <p>
+      The protocol additionally harvests entropy from Bitcoin stale blocks and creates Bitcoin
+      dead-UTXO anchors for provenance records.
+    </p>
+    <p>TGBT's role within the protocol:</p>
+    <ul style="margin: 0.5rem 0 0.8rem 1.5rem; color: var(--text);">
+      <li>Reward asset for accepted mining solutions (<code>MiningModule</code> &rarr; <code>TokenomicsModuleV2.onBlockMined()</code>).</li>
+      <li>Reward asset for validated Bitcoin stale-block proofs (<code>StaleBlockOracle.claimReward()</code>).</li>
+      <li>Payment asset for the proof marketplace and the dead-UTXO certificate registry.</li>
+    </ul>
+    <p>
+      The <code>TGBT</code> token contract is non-proxy, non-upgradeable, and non-pausable. Only the
+      currently authorized <code>TokenomicsModuleV2</code> can call <code>mint()</code>, constrained
+      by immutable allocation budgets encoded in the module.
+    </p>
+  </section>
+
+  <!-- Token Info -->
+  <section>
+    <h2>Token Information</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Field</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Token name</td><td>Temporal Gradient Beacon Token</td></tr>
+          <tr><td>Symbol</td><td>TGBT</td></tr>
+          <tr><td>Standard</td><td>ERC-20</td></tr>
+          <tr><td>Decimals</td><td>18</td></tr>
+          <tr><td>Hard cap</td><td>2,000,000,000 TGBT (enforced at the token contract)</td></tr>
+          <tr><td>Network</td><td>Arbitrum One (chain ID 42161)</td></tr>
+          <tr>
+            <td>Token contract</td>
+            <td>
+              <code>0x31228eE520e895DA19f728DE5459b1b317d9b8D8</code><br/>
+              <a href="https://arbiscan.io/token/0x31228eE520e895DA19f728DE5459b1b317d9b8D8" target="_blank" rel="noopener">View on Arbiscan &rarr;</a>
+            </td>
+          </tr>
+          <tr><td>Minting authority</td><td><code>TokenomicsModuleV2</code> only — no owner-mint, no proxy, no pause</td></tr>
+          <tr><td>Admin mint</td><td>None</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Contracts -->
+  <section>
+    <h2>Deployed Contracts (Arbitrum One)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Contract</th><th>Address</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TGBT token</td>
+            <td><a href="https://arbiscan.io/token/0x31228eE520e895DA19f728DE5459b1b317d9b8D8" target="_blank" rel="noopener"><code>0x31228eE...b8D8</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>TemporalGradientCore</td>
+            <td><a href="https://arbiscan.io/address/0xF6556DDC7CdD3635A05428BD85BCf33A09F752e6" target="_blank" rel="noopener"><code>0xF6556D...52e6</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>MiningModule</td>
+            <td><a href="https://arbiscan.io/address/0xb2b3d9bC63993b725Aea36aC90601c22292F3171" target="_blank" rel="noopener"><code>0xb2b3d9...3171</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>BatchMiningModule</td>
+            <td><a href="https://arbiscan.io/address/0xAf07E37D104E9be17639FE7a51B36972D4738651" target="_blank" rel="noopener"><code>0xAf07E3...8651</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>RandomnessModule</td>
+            <td><a href="https://arbiscan.io/address/0x583863CFC5EFc0106886BA485e1b67F0966584f9" target="_blank" rel="noopener"><code>0x583863...84f9</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>TokenomicsModuleV2</td>
+            <td><a href="https://arbiscan.io/address/0x7B871bdeDdED0064C34e22902181A9a983C9E2ab" target="_blank" rel="noopener"><code>0x7B871b...E2ab</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>RateLimitModule</td>
+            <td><a href="https://arbiscan.io/address/0x61dEEEf2B2956db3AD291c639939669cD5399c1B" target="_blank" rel="noopener"><code>0x61dEEE...9c1B</code></a></td>
+            <td>Verified</td>
+          </tr>
+          <tr>
+            <td>StaleBlockOracle</td>
+            <td><a href="https://arbiscan.io/address/0xdc4eDF632187d05da50393Af87D19A08f6986517" target="_blank" rel="noopener"><code>0xdc4eDF...6517</code></a></td>
+            <td>Verified</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section>
+    <h2>Team</h2>
+    <div class="team-card">
+      <span class="name">Emiliano Solazzi</span>
+      <span class="role">Founder &amp; Protocol Operator — sole developer and maintainer</span>
+      <a href="https://www.linkedin.com/in/emiliano-germ%C3%A1n-solazzi-griminger-936717210/" target="_blank" rel="noopener">LinkedIn profile &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section>
+    <h2>Official Channels</h2>
+    <div class="link-row">
+      <a class="link-btn" href="https://github.com/emilianosolazzi/TGBT_Token" target="_blank" rel="noopener">GitHub — Source Code</a>
+      <a class="link-btn" href="https://arbiscan.io/token/0x31228eE520e895DA19f728DE5459b1b317d9b8D8" target="_blank" rel="noopener">Arbiscan — Token Page</a>
+      <a class="link-btn" href="mailto:emiliano@nativebtc.org">Contact: emiliano@nativebtc.org</a>
+    </div>
+  </section>
+
+  <!-- Supply -->
+  <section>
+    <h2>Current Supply Facts</h2>
+    <p>
+      The current <code>totalSupply</code> is a small fraction of the 2,000,000,000 TGBT hard cap.
+      The vast majority of the allocation remains unminted and is only reachable through verifiable
+      on-chain mining work or validated stale-block proofs.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Allocation</th><th>Amount</th><th>% of Cap</th><th>Unlock Condition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mining rewards</td><td>1,900,000,000 TGBT</td><td>95%</td><td>Accepted PoW commit-reveal solutions</td></tr>
+          <tr><td>Stale-block rewards</td><td>75,000,000 TGBT</td><td>3.75%</td><td>Validated Bitcoin stale-block proofs</td></tr>
+          <tr><td>Unallocated cap headroom</td><td>25,000,000 TGBT</td><td>1.25%</td><td>Not assignable under current module set</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Source code is open and verified on Arbiscan. TGBT has not undergone a third-party security audit; the project does not describe itself as &ldquo;audited&rdquo; in any user-facing material.
+      Report security issues privately to <a href="mailto:emiliano@nativebtc.org">emiliano@nativebtc.org</a>.
+    </p>
+    <p style="margin-top:0.5rem;">Temporal Gradient &mdash; Arbitrum One &mdash; MIT License</p>
+  </footer>
+
+</div>
+</body>
+</html>

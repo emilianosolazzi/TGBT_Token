@@ -116,7 +116,9 @@ If Arbiscan identifies a conflict with an existing project or trademark holder, 
 
 ## 6. Sender Authority Mitigation
 
-The submission email `emiliano.arlington@gmail.com` is a public-provider address. To demonstrate that this submission is authorized by the actual project operator, the following verification paths are offered:
+This resubmission is sent from `emiliano@nativebtc.org`, a domain-matched address for the project's associated domain `nativebtc.org`. The original submission used `emiliano.arlington@gmail.com` (a public-provider address); that concern is now resolved.
+
+To further demonstrate that this submission is authorized by the actual project operator, the following verification paths are offered:
 
 1. **On-chain signed message** from the protocol operator wallet `0x5cB4D906f0464b34c44d6555A770BF6aF4A2cEfe` or the Ledger governance wallet `0xd28E6a7AD806E85BD0544ed443D25E48f52c06c3`, signing a challenge phrase provided by Arbiscan.
 2. **Transaction-based authority proof**: Arbiscan can request a zero-value Arbitrum transaction from either of the two wallets above carrying a predetermined memo (e.g. an Arbiscan-issued token or a calldata note), demonstrating exclusive control.
@@ -129,7 +131,7 @@ The project will provide whichever proof Arbiscan prefers.
 ## 7. Founder / Team Transparency
 
 - **Founder and protocol operator:** Emiliano Solazzi
-- **LinkedIn:** will be supplied on Arbiscan's request through the same submission channel (withheld from this on-repo document to avoid publishing personal contact data in a public source tree).
+- **LinkedIn:** [https://www.linkedin.com/in/emiliano-germ%C3%A1n-solazzi-griminger-936717210/](https://www.linkedin.com/in/emiliano-germ%C3%A1n-solazzi-griminger-936717210/)
 - **Role:** sole maintainer of the public code repository, protocol operator of the live Arbitrum deployment, and the party responsible for this submission.
 - **Jurisdiction statement:** the project is a developer-led open-source protocol; it is not a registered investment product, is not marketed as one, and makes no forward-looking financial promises anywhere in its materials.
 
